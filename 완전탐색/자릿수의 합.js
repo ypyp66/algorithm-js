@@ -19,7 +19,7 @@ N개의 자연수가 입력되면 각 자연수의 자릿수의 합을 구하고
   let result = 0;
   let sum = Number.MIN_SAFE_INTEGER;
 
-  arr.forEach((item) => {
+  arr.map((item) => {
     const sum_ = [...item.toString()].reduce((acc, cur) => {
       return acc + Number(cur);
     }, 0);

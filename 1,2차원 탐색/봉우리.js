@@ -27,4 +27,37 @@
 ▣ 출력예제 1
 10
 */
-(function solution() {})();
+(function solution(n, arr) {
+  let cnt = 0;
+  const dx = [-1, 0, 1, 0];
+  const dy = [0, 1, 0, -1];
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      const target = arr[i][j];
+      let flag = true;
+      for (let k = 0; k < 4; k++) {
+        const nextX = i + dx[k];
+        const nextY = j + dy[k];
+
+        if (nextX < 0 || nextX >= n || nextY < 0 || nextY >= n) continue;
+
+        if (arr[nextX][nextY] >= target) {
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        cnt++;
+      }
+    }
+  }
+
+  console.log(cnt);
+})(5, [
+  [5, 3, 7, 2, 3],
+  [3, 7, 1, 1, 1],
+  [7, 2, 5, 3, 0],
+  [4, 3, 6, 4, 1],
+  [8, 7, 3, 5, 2],
+]);
