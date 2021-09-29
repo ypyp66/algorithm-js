@@ -17,6 +17,10 @@ BACBACCACCBDEDE
 ▣ 출력예제 1
 C
 */
+/*
+풀이
+- 
+*/
 (function solution(n, str) {
   let obj = {};
 
@@ -25,5 +29,23 @@ C
   });
 
   const result = Math.max(...Object.values(obj));
-  console.log(result, Object.keys(obj));
-})(15, "BACBACCACCBDEDE");
+  console.log(
+    result,
+    Object.keys(obj).find((key) => obj[key] === result)
+  );
+})(15, "BACBACCACCBDEDEEEEEE");
+
+// (function solution(n, str) {
+//   let obj = new Map();
+//   let answer = Number.MIN_SAFE_INTEGER;
+
+//   [...str].forEach((item) => {
+//     obj.has(item) ? obj.set(item, obj.get(item) + 1) : obj.set(item, 1);
+//   });
+
+//   for (let [_, value] of obj) {
+//     answer = Math.max(answer, value);
+//   }
+
+//   console.log(answer);
+// })(15, "BACBACCACCBDEDE");
