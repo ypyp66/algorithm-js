@@ -28,6 +28,11 @@
 3 5
 
 */
+/*
+풀이
+- 입력된 배열과 오름차순으로 정렬했을 때 배열을 비교한다.
+- 서로 다른 요소가 있다면 answer에 +1 하여 push한다.
+*/
 (function solution(n, arr) {
   const answer = [];
   const sorted = [...arr].sort((a, b) => a - b);
@@ -36,4 +41,4 @@
     if (arr[i] !== sorted[i]) answer.push(i + 1);
   }
   console.log(answer);
-})(9, [120, 130, 150, 150, 130, 150]);
+})(9, [120, 125, 152, 130, 135, 135, 143, 127, 160]);
