@@ -30,17 +30,24 @@
 (function solution(n) {
   let answer = [];
   let arr = new Array(n).fill(0);
+
   function DFS(v) {
+    //v는 arr의 index를 가리킴
     if (v >= n + 1) {
+      //v가 n+1과 같아지면
       let temp = "";
       for (let i = 0; i < arr.length; i++) {
+        //arr을 순회하여
         if (arr[i] === 1) temp += i + 1 + " ";
+        //값이 1인 경우가 존재하는 경우이므로 해당 인덱스+1 을 temp에 대입
       }
       answer.push(temp.trim());
     } else {
-      arr[v - 1] = 1;
+      //1~n까지이므로 v는 1부터 시작
+      //근데 arr은 0~n-1임
+      arr[v - 1] = 1; //arr[v-1]이 존재할 때
       DFS(v + 1);
-      arr[v - 1] = 0;
+      arr[v - 1] = 0; //arr[v-1]이 존재하지 않을 때
       DFS(v + 1);
     }
   }

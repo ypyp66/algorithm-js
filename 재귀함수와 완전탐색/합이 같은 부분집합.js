@@ -38,8 +38,8 @@ YES
     if (v >= arr.length) {
       return;
     } else {
-      DFS(v + 1, sum + arr[v]);
-      DFS(v + 1, sum);
+      DFS(v + 1, sum + arr[v]); //sum에 해당 arr[v]를 더했을경우
+      DFS(v + 1, sum); //sum에 해당 arr[v]를 더하지 않았을 경우
     }
   }
   DFS(0, 0);

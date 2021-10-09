@@ -22,7 +22,7 @@
 */
 /*
 풀이
-- 여기선 v가 index와 같다.
+- 여기선 v가 index와 같다. (레벨)
 - m 길이의 배열을 선언한다.
 - 1~n까지 반복하여 값을 arr[v]에 할당한다.
 - v+1을 하여 다음 인덱스로 넘긴다.
@@ -35,9 +35,13 @@
 
   function DFS(v) {
     if (v === m) {
-      answer.push([...arr]);
+      //레벨이 (index가) m과 같다면 (m개 라면)
+      answer.push([...arr]); //answer에 arr을 push
     } else {
+      //m개보다 모자라면
       for (let i = 1; i <= n; i++) {
+        //반복문을 통해 arr의 해당 인덱스에 값을 넣어줌
+        //1 -> 1,2,3, 2->1,2,3, 3->1,2,3 이런식으로 된다
         arr[v] = i;
         DFS(v + 1);
       }

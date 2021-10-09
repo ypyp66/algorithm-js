@@ -22,14 +22,17 @@
 (function solution(n, m, arr) {
   //m은 제한시간
   let answer = 0;
+
   function DFS(v, sum, time) {
     if (time <= m) {
-      answer = Math.max(answer, sum);
+      //시간이 m보다 작으면 (같지 않을 수 있으므로)
+      answer = Math.max(answer, sum); //기존 answer와 비교하여 더 큰 값을 대입
     }
     if (v > n) return;
+    //v가 문제의 길이보다 커지면 리턴
     else {
-      DFS(v + 1, sum + arr[v][0], time + arr[v][1]);
-      DFS(v + 1, sum, time);
+      DFS(v + 1, sum + arr[v][0], time + arr[v][1]); //해당 문제를 풀 경우
+      DFS(v + 1, sum, time); //해당 문제를 풀지 않았을 경우
     }
   }
   DFS(0, 0, 0);
