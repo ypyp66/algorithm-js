@@ -27,9 +27,6 @@
 */
 (function solution(arr) {
   let cnt = 0;
-  let visited = Array.from({ length: arr.length }, () =>
-    new Array(arr.length).fill(false)
-  );
   const dx = [-1, 0, 1, 0];
   const dy = [0, 1, 0, -1];
 
